@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Resources – City of Miami{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/resources.css') }}" />
+{% endblock %}
+
+{% block content %}
+<main class="resources-page">
+
+  <!-- HERO -->
+  <section class="resources-hero">
+    <h1>RESOURCES</h1>
+    <p>Information and support services available to Miami residents</p>
+  </section>
+
+  <section class="resources-layout">
+
+    <!-- FILTERS -->
+    <aside class="filters">
+      <h3>FILTERS</h3>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="education">Education</button>
+      <button class="filter-btn" data-filter="housing">Housing</button>
+      <button class="filter-btn" data-filter="health">Health</button>
+      <button class="filter-btn" data-filter="transportation">Transportation</button>
+      <button class="filter-btn" data-filter="community">Community</button>
+    </aside>
+
+    <!-- GRID -->
+    <section class="resources-grid">
+
+      <article class="resource-card" data-category="education">
+        <h4>PUBLIC EDUCATION</h4>
+        <p>Access Miami-Dade public schools, adult education, and literacy programs.</p>
+        <button class="read-more">READ MORE</button>
+        <div class="card-more">
+          Includes K-12 schools, ESL classes, GED programs, and continuing education.
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="housing">
+        <h4>HOUSING ASSISTANCE</h4>
+        <p>Programs to help residents find affordable and stable housing.</p>
+        <button class="read-more">READ MORE</button>
+        <div class="card-more">
+          Rental assistance, affordable housing listings, and homelessness prevention.
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="health">
+        <h4>HEALTH SERVICES</h4>
+        <p>Community health clinics and mental health support.</p>
+        <button class="read-more">READ MORE</button>
+        <div class="card-more">
+          Low-cost clinics, vaccination programs, crisis counseling, and wellness support.
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="transportation">
+        <h4>PUBLIC TRANSPORTATION</h4>
+        <p>Information on buses, rail, and commuter services.</p>
+        <button class="read-more">READ MORE</button>
+        <div class="card-more">
+          Route planning, reduced-fare programs, and accessibility services.
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="community">
+        <h4>COMMUNITY PROGRAMS</h4>
+        <p>Local programs that strengthen neighborhoods and engagement.</p>
+        <button class="read-more">READ MORE</button>
+        <div class="card-more">
+          Youth activities, senior services, volunteer opportunities, and events.
+        </div>
+      </article>
+
+    </section>
+
+  </section>
+
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/resources.js') }}"></script>
+{% endblock %}

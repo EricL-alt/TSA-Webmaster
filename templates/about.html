@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}About Us – City of Miami{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}" />
+{% endblock %}
+
+{% block content %}
+<main class="about-page">
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <img
+      src="{{ url_for('static', filename='images/about-hero.png') }}"
+      alt="Child in wheelchair"
+      class="about-hero-img"
+    />
+
+    <h1 class="about-title">ABOUT US</h1>
+  </section>
+
+  <!-- CONTENT CARD -->
+  <section class="about-card">
+    <div class="about-card-inner">
+
+      <div class="about-text">
+        <h2>OUR RATIONAL</h2>
+        <p>
+          The Bureau of Animal Care &amp; Control serves the residents of the City of
+          Pittsburgh by providing care, control and resolution to situations dealing
+          with domestic animals and wildlife. The Bureau of Animal Care &amp; Control
+          services are delivered to the City of Pittsburgh by providing care, control
+          and resolution to situations dealing with domestic animals and wildlife.
+        </p>
+
+        <h3>The Plan</h3>
+        <ul>
+          <li>Step 1: The Bureau of Animal Care &amp; Control serves</li>
+          <li>Step 2: The Bureau of Animal Care &amp; Control serves</li>
+          <li>Step 3: The Bureau of Animal Care &amp; Control serves</li>
+          <li>Step 4: The Bureau of Animal Care &amp; Control serves</li>
+        </ul>
+      </div>
+
+      <div class="about-image">
+        <img
+          src="{{ url_for('static', filename='images/about-side.jpg') }}"
+          alt="Family with wheelchair"
+        />
+      </div>
+
+    </div>
+
+    <p class="about-quote">
+      "We make everyone who has difficulty in Miami feel included"
+    </p>
+  </section>
+
+</main>
+{% endblock %}

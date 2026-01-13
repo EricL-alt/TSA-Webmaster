@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}City of Miami - Welcome{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+<header class="hero" style="position: relative; width: 100vw; height: 100vh; margin-left: calc(-50vw + 50%); overflow: hidden;">
+  <img class="hero__img" src="{{ url_for('static', filename='images/hero-miami.jpg') }}" alt="Miami skyline" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+  <div class="hero__overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%); display: flex; align-items: center; justify-content: center;">
+    <h1 class="hero__title" style="font-size: 500%; color: white; text-shadow: 2px 4px 8px rgba(0,0,0,0.6); text-align: center; padding: 0 20px;">WELCOME TO THE CITY OF MIAMI</h1>
+  </div>
+</header>
+
+<!-- HIGHLIGHT CAROUSEL -->
+<section class="highlightWrap">
+  <button class="circleArrow circleArrow--left" type="button" aria-label="Previous" data-highlight-prev>
+    <span>‹</span>
+  </button>
+
+  <div class="highlight" aria-live="polite">
+    <!-- Slide 1 -->
+    <article class="highlight__slide is-active" data-highlight-slide>
+      <div class="highlight__card">
+        <div class="highlight__left">
+          <img src="{{ url_for('static', filename='images/highlight-1.jpg') }}" alt="Highlight image">
+        </div>
+
+        <div class="highlight__right">
+          <div class="highlight__title">HIGHLIGHT: THRIVING</div>
+          <div class="highlight__title">MIND SOUTH FLORIDA</div>
+          <div class="highlight__desc">
+            Connects Miami—Dade residents to accessible mental health services,
+            including counseling, crisis support, and education.
+          </div>
+
+          <a class="pillBtn" href="">
+            LEARN MORE <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Slide 2 -->
+    <article class="highlight__slide" data-highlight-slide>
+      <div class="highlight__card">
+        <div class="highlight__left">
+          <img src="{{ url_for('static', filename='images/highlight-2.jpg') }}" alt="Highlight image">
+        </div>
+
+        <div class="highlight__right">
+          <div class="highlight__title">HIGHLIGHT:</div>
+          <div class="highlight__title">put another highlight here</div>
+          <div class="highlight__desc">
+            put another highlight description here
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <button class="circleArrow circleArrow--right" type="button" aria-label="Next" data-highlight-next>
+    <span>›</span>
+  </button>
+</section>
+
+<!-- LOOKING FOR -->
+<section class="looking">
+  <div class="looking__title">YOU MAY BE LOOKING FOR…</div>
+
+  <div class="cards">
+    <a class="card" href="{{ url_for('services') }}">
+      <div class="card__img">
+        <img src="{{ url_for('static', filename='images/card-1.jpg') }}" alt="">
+      </div>
+      <div class="card__body">
+        <div class="card__h">City services</div>
+        <div class="card__p">Find local resources and support.</div>
+      </div>
+    </a>
+
+    <a class="card card--active" href="{{ url_for('about') }}">
+      <div class="card__img">
+        <img src="{{ url_for('static', filename='images/card-2.jpg') }}" alt="">
+      </div>
+      <div class="card__body">
+        <div class="card__h">Our story</div>
+        <div class="card__p">Learn what makes Miami unique.</div>
+      </div>
+      <div class="card__dot" aria-hidden="true">›</div>
+    </a>
+
+    <a class="card" href="{{ url_for('business') }}">
+      <div class="card__img">
+        <img src="{{ url_for('static', filename='images/card-3.jpg') }}" alt="">
+      </div>
+      <div class="card__body">
+        <div class="card__h">Create Your Business Today</div>
+        <div class="card__p">We are exited to see your expertise in action.</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<img style="transform: translateY(45%);" src="{{ url_for('static', filename='images/squiggle.png') }}" alt="Decorative Squiggle" class="squiggle">
+
+<!-- DIVERSITY / INFOGRAPHIC SECTION -->
+<section class="diversity">
+  <div class="diversity__grid">
+    <div class="diversity__stats">
+      <div class="statRow">
+        <div class="statBig">70%</div>
+        <div class="statText">Residents speak<br/>a language other<br/>than English at home</div>
+      </div>
+
+      <div class="statRow statRow--center">
+        <div class="statMid">40</div>
+        <div class="statSmall">+442,000</div>
+        <div class="peopleLine" aria-hidden="true">
+          {% for i in range(18) %}
+            <span class="person"></span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="statRow statRow--right">
+        <div class="statPair">
+          <div class="statMid">77°F</div>
+          <div class="statLabel">Average annual<br/>temperature</div>
+        </div>
+        <div class="statPair">
+          <div class="statMid">~$49,000</div>
+          <div class="statLabel">Average<br/>household income</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diversity__art">
+      <img src="{{ url_for('static', filename='images/diversity-illustration.png') }}" alt="Diversity illustration">
+    </div>
+  </div>
+
+  <!-- big teal circle with text -->
+  <div class="diversity__badge">
+    <div class="badgeText">
+      …AND THESE MAKE ONE<br/>
+      OF THE MOST DIVERSE<br/>
+      CITIES IN THE U.S!
+    </div>
+  </div>
+
+  <!-- Speech bubbles -->
+  <div class="bubble bubble--left">Merhaba</div>
+  <div class="bubble bubble--right">Hola!</div>
+  <div class="bubble bubble--bottom">مرحبا</div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}
+
