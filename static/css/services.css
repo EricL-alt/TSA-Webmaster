@@ -72,6 +72,13 @@ html, body {
     border: 2px solid transparent;
     box-shadow: 0 8px 18px rgba(0,0,0,.08);
     transition: all .25s ease;
+	p{
+		display: -webkit-box;
+		-webkit-line-clamp: 5;
+		-webkit-box-orient: vertical;
+		text-overflow: ellipsis;
+		overflow:hidden;
+	}
   }
   
   .service-card:hover {

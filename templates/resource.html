@@ -279,10 +279,15 @@
 <body>
     <div class="resource-content">
         <h1>{{title}}</h1>
-        <h3>{{subtitle}}</h3>
         <div class="category-badge">{{category}}</div>
+		<div class="category-badge">{{btype}}</div>
+		<div class="category-badge">{{area}}</div>
         <p class="info-text">{{info}}</p>
-        <a href="/" class="back-button">← Back to Home</a>
+		<p class="info-text">{{address}}</p>
+		<p class="info-text">{{phone}}</p>
+		<p class="info-text">{{email}}</p>
+		<p class="info-text"><a style="color: #4f9da3;" " target="_blank" rel="noopener noreferrer" href={{link}}>{{link}}</a></p>
+        <a href="/resources" class="back-button">← Back to Services</a>
     </div>
 
     <div class="comments-section">
@@ -293,10 +298,18 @@
             <div class="success-message" id="successMessage"></div>
 
             <form id="commentForm">
+                {% if logged_in %}
+                <input type="hidden" id="username" value="{{ current_user.name }}">
+                <div class="form-group">
+                    <label>Commenting as</label>
+                    <p style="margin:0; font-size:12px; font-weight:900; color:#6fb6bb;">{{ current_user.name }}</p>
+                </div>
+                {% else %}
                 <div class="form-group">
                     <label for="username">Name</label>
                     <input type="text" id="username" name="username" placeholder="Enter your name (optional)" maxlength="50">
                 </div>
+                {% endif %}
                 <div class="form-group">
                     <label for="comment">Comment</label>
                     <textarea id="comment" name="comment" placeholder="Write your comment here..." required></textarea>

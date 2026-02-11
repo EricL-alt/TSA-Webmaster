@@ -26,7 +26,7 @@
     <article class="highlight__slide is-active" data-highlight-slide>
       <div class="highlight__card">
         <div class="highlight__left">
-          <img src="{{ url_for('static', filename='images/highlight-1.jpg') }}" alt="Highlight image">
+          <img src="{{ url_for('static', filename='images/mh1.png') }}" alt="Highlight image">
         </div>
 
         <div class="highlight__right">
@@ -37,7 +37,7 @@
             including counseling, crisis support, and education.
           </div>
 
-          <a class="pillBtn" href="">
+          <a class="pillBtn" href="/user/{{27}}">
             LEARN MORE <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -48,19 +48,66 @@
     <article class="highlight__slide" data-highlight-slide>
       <div class="highlight__card">
         <div class="highlight__left">
-          <img src="{{ url_for('static', filename='images/highlight-2.jpg') }}" alt="Highlight image">
+          <img src="{{ url_for('static', filename='images/ed4.webp') }}" alt="Highlight image">
         </div>
 
         <div class="highlight__right">
-          <div class="highlight__title">HIGHLIGHT:</div>
-          <div class="highlight__title">put another highlight here</div>
+          <div class="highlight__title">HIGHLIGHT: PROJECT</div>
+          <div class="highlight__title">UP-START</div>
           <div class="highlight__desc">
-            put another highlight description here
+            Project UP-START provides education assistance and support to students
+			in unstable housing, preparing them to move on to a brighter future.
           </div>
 
+          <a class="pillBtn" href="/user/{{24}}">
+            LEARN MORE <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </article>
+	
+	    <article class="highlight__slide" data-highlight-slide>
+      <div class="highlight__card">
+        <div class="highlight__left">
+          <img src="{{ url_for('static', filename='images/te1.jpg') }}" alt="Highlight image">
+        </div>
+
+        <div class="highlight__right">
+          <div class="highlight__title">HIGHLIGHT: MIAMI</div>
+          <div class="highlight__title">CONNECTED</div>
+          <div class="highlight__desc">
+			Teaches Miami residents how to use technology, provides electronics and internet services
+			to those in need, and assists locals in obtaining jobs in the tech industry.
+          </div>
+
+          <a class="pillBtn" href="/user/{{15}}">
+            LEARN MORE <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </article>
+	
+	<article class="highlight__slide" data-highlight-slide>
+      <div class="highlight__card">
+        <div class="highlight__left">
+          <img src="{{ url_for('static', filename='images/im1.jpg') }}" alt="Highlight image">
+        </div>
+
+        <div class="highlight__right">
+          <div class="highlight__title">HIGHLIGHT: MIAMI-DADE OFFICE</div>
+          <div class="highlight__title">OF NEW AMERICANS (ONA)</div>
+          <div class="highlight__desc">
+			A county-run program providing citizenship support, TPS assistance, legal screenings, and immigrant integration services across Miami-Dade County.
+          </div>
+
+          <a class="pillBtn" href="/user/{{18}}">
+            LEARN MORE <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </article>
+	
+	
   </div>
 
   <button class="circleArrow circleArrow--right" type="button" aria-label="Next" data-highlight-next>
@@ -73,90 +120,49 @@
   <div class="looking__title">YOU MAY BE LOOKING FOR…</div>
 
   <div class="cards">
-    <a class="card" href="{{ url_for('services') }}">
+    <a class="card" href="{{ url_for('resources') }}">
       <div class="card__img">
-        <img src="{{ url_for('static', filename='images/card-1.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='images/he3.jpg') }}" alt="">
       </div>
       <div class="card__body">
-        <div class="card__h">City services</div>
+        <div class="card__h">City Services</div>
         <div class="card__p">Find local resources and support.</div>
       </div>
     </a>
 
     <a class="card card--active" href="{{ url_for('about') }}">
       <div class="card__img">
-        <img src="{{ url_for('static', filename='images/card-2.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='images/about-side.webp') }}" alt="">
       </div>
       <div class="card__body">
-        <div class="card__h">Our story</div>
+        <div class="card__h">Our Story</div>
         <div class="card__p">Learn what makes Miami unique.</div>
       </div>
       <div class="card__dot" aria-hidden="true">›</div>
     </a>
 
-    <a class="card" href="{{ url_for('business') }}">
+    <a class="card" href="{{ url_for('suggest') }}">
       <div class="card__img">
-        <img src="{{ url_for('static', filename='images/card-3.jpg') }}" alt="">
+        <img src="{{ url_for('static', filename='images/miami-image.jpg') }}" alt="">
       </div>
       <div class="card__body">
-        <div class="card__h">Create Your Business Today</div>
-        <div class="card__p">We are exited to see your expertise in action.</div>
+        <div class="card__h">Suggest a Service</div>
+        <div class="card__p">Share anything we may have missed.</div>
       </div>
     </a>
   </div>
 </section>
 
-<img style="transform: translateY(45%);" src="{{ url_for('static', filename='images/squiggle.png') }}" alt="Decorative Squiggle" class="squiggle">
 
 <!-- DIVERSITY / INFOGRAPHIC SECTION -->
+<!--<img style="transform: translate(-10%,30%);" src="{{ url_for('static', filename='images/path.jpg') }}" alt="Decorative Squiggle" class="squiggle">
+-->
 <section class="diversity">
-  <div class="diversity__grid">
-    <div class="diversity__stats">
-      <div class="statRow">
-        <div class="statBig">70%</div>
-        <div class="statText">Residents speak<br/>a language other<br/>than English at home</div>
-      </div>
-
-      <div class="statRow statRow--center">
-        <div class="statMid">40</div>
-        <div class="statSmall">+442,000</div>
-        <div class="peopleLine" aria-hidden="true">
-          {% for i in range(18) %}
-            <span class="person"></span>
-          {% endfor %}
-        </div>
-      </div>
-
-      <div class="statRow statRow--right">
-        <div class="statPair">
-          <div class="statMid">77°F</div>
-          <div class="statLabel">Average annual<br/>temperature</div>
-        </div>
-        <div class="statPair">
-          <div class="statMid">~$49,000</div>
-          <div class="statLabel">Average<br/>household income</div>
-        </div>
-      </div>
-    </div>
-
     <div class="diversity__art">
-      <img src="{{ url_for('static', filename='images/diversity-illustration.png') }}" alt="Diversity illustration">
+      <img style="transform: scale(1.6, 1.6) translateX(17%);" src="{{ url_for('static', filename='images/path2.jpg') }}" alt="Diversity illustration">
     </div>
   </div>
-
-  <!-- big teal circle with text -->
-  <div class="diversity__badge">
-    <div class="badgeText">
-      …AND THESE MAKE ONE<br/>
-      OF THE MOST DIVERSE<br/>
-      CITIES IN THE U.S!
-    </div>
-  </div>
-
-  <!-- Speech bubbles -->
-  <div class="bubble bubble--left">Merhaba</div>
-  <div class="bubble bubble--right">Hola!</div>
-  <div class="bubble bubble--bottom">مرحبا</div>
+  
 </section>
 {% endblock %}
 
