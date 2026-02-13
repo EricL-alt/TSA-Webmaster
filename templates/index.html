@@ -8,10 +8,13 @@
 
 {% block content %}
 <!-- HERO -->
-<header class="hero" style="position: relative; width: 100vw; height: 100vh; margin-left: calc(-50vw + 50%); overflow: hidden;">
-  <img class="hero__img" src="{{ url_for('static', filename='images/hero-miami.jpg') }}" alt="Miami skyline" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-  <div class="hero__overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%); display: flex; align-items: center; justify-content: center;">
-    <h1 class="hero__title" style="font-size: 500%; color: white; text-shadow: 2px 4px 8px rgba(0,0,0,0.6); text-align: center; padding: 0 20px;">WELCOME TO THE CITY OF MIAMI</h1>
+<header class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="{{ url_for('static', filename='images/banner.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero__overlay">
+    <h1 class="hero__title">WELCOME TO THE CITY OF MIAMI</h1>
   </div>
 </header>
 
@@ -56,7 +59,7 @@
           <div class="highlight__title">UP-START</div>
           <div class="highlight__desc">
             Project UP-START provides education assistance and support to students
-			in unstable housing, preparing them to move on to a brighter future.
+            in unstable housing, preparing them to move on to a brighter future.
           </div>
 
           <a class="pillBtn" href="/user/{{24}}">
@@ -65,8 +68,8 @@
         </div>
       </div>
     </article>
-	
-	    <article class="highlight__slide" data-highlight-slide>
+
+    <article class="highlight__slide" data-highlight-slide>
       <div class="highlight__card">
         <div class="highlight__left">
           <img src="{{ url_for('static', filename='images/te1.jpg') }}" alt="Highlight image">
@@ -76,8 +79,8 @@
           <div class="highlight__title">HIGHLIGHT: MIAMI</div>
           <div class="highlight__title">CONNECTED</div>
           <div class="highlight__desc">
-			Teaches Miami residents how to use technology, provides electronics and internet services
-			to those in need, and assists locals in obtaining jobs in the tech industry.
+            Teaches Miami residents how to use technology, provides electronics and internet services
+            to those in need, and assists locals in obtaining jobs in the tech industry.
           </div>
 
           <a class="pillBtn" href="/user/{{15}}">
@@ -86,8 +89,8 @@
         </div>
       </div>
     </article>
-	
-	<article class="highlight__slide" data-highlight-slide>
+
+    <article class="highlight__slide" data-highlight-slide>
       <div class="highlight__card">
         <div class="highlight__left">
           <img src="{{ url_for('static', filename='images/im1.jpg') }}" alt="Highlight image">
@@ -97,7 +100,8 @@
           <div class="highlight__title">HIGHLIGHT: MIAMI-DADE OFFICE</div>
           <div class="highlight__title">OF NEW AMERICANS (ONA)</div>
           <div class="highlight__desc">
-			A county-run program providing citizenship support, TPS assistance, legal screenings, and immigrant integration services across Miami-Dade County.
+            A county-run program providing citizenship support, TPS assistance, legal screenings, and immigrant
+            integration services across Miami-Dade County.
           </div>
 
           <a class="pillBtn" href="/user/{{18}}">
@@ -106,9 +110,13 @@
         </div>
       </div>
     </article>
-	
-	
+
+
   </div>
+
+  </div>
+
+  <div class="highlight__dots" data-highlight-dots></div>
 
   <button class="circleArrow circleArrow--right" type="button" aria-label="Next" data-highlight-next>
     <span>›</span>
@@ -128,9 +136,10 @@
         <div class="card__h">City Services</div>
         <div class="card__p">Find local resources and support.</div>
       </div>
+      <div class="card__dot" aria-hidden="true">›</div>
     </a>
 
-    <a class="card card--active" href="{{ url_for('about') }}">
+    <a class="card" href="{{ url_for('about') }}">
       <div class="card__img">
         <img src="{{ url_for('static', filename='images/about-side.webp') }}" alt="">
       </div>
@@ -149,6 +158,7 @@
         <div class="card__h">Suggest a Service</div>
         <div class="card__p">Share anything we may have missed.</div>
       </div>
+      <div class="card__dot" aria-hidden="true">›</div>
     </a>
   </div>
 </section>
@@ -158,15 +168,15 @@
 <!--<img style="transform: translate(-10%,30%);" src="{{ url_for('static', filename='images/path.jpg') }}" alt="Decorative Squiggle" class="squiggle">
 -->
 <section class="diversity">
-    <div class="diversity__art">
-      <img style="transform: scale(1.6, 1.6) translateX(17%);" src="{{ url_for('static', filename='images/path2.jpg') }}" alt="Diversity illustration">
-    </div>
+  <div class="diversity__art">
+    <img style="transform: scale(1.6, 1.6) translateX(17%);" src="{{ url_for('static', filename='images/path2.jpg') }}"
+      alt="Diversity illustration">
   </div>
-  
+  </div>
+
 </section>
 {% endblock %}
 
 {% block extra_js %}
 <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 {% endblock %}
-

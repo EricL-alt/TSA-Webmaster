@@ -1,73 +1,83 @@
 /* =========================
    HIGHLIGHT CAROUSEL
-   (SLIDE VIA CLASSES)
+   (SIMPLE FADE/GALLERY + DOTS)
 ========================= */
 
 const slides = document.querySelectorAll("[data-highlight-slide]");
 const prevBtn = document.querySelector("[data-highlight-prev]");
 const nextBtn = document.querySelector("[data-highlight-next]");
+const dotsContainer = document.querySelector("[data-highlight-dots]");
 
 let currentIndex = 0;
 
-function updateSlides(nextIndex, direction) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("is-active", "slide-left", "slide-right");
+// Initialize
+function initCarousel() {
+  if (slides.length === 0) return;
 
-    if (i === nextIndex) {
-      slide.classList.add("is-active");
-      slide.classList.add(direction === "next" ? "slide-in-right" : "slide-in-left");
-    }
+  // Create dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = ''; // Clear existing
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('is-active');
+      dot.addEventListener('click', () => showSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+  }
 
-    if (i === currentIndex) {
-      slide.classList.add(direction === "next" ? "slide-out-left" : "slide-out-right");
-    }
+  // Show first slide
+  slides[0].classList.add('is-active');
+}
+
+function updateDots(index) {
+  if (!dotsContainer) return;
+  const dots = dotsContainer.querySelectorAll('.dot');
+  dots.forEach(dot => dot.classList.remove('is-active'));
+  if (dots[index]) dots[index].classList.add('is-active');
+}
+
+function showSlide(index) {
+  // Wrap around index
+  if (index >= slides.length) index = 0;
+  if (index < 0) index = slides.length - 1;
+
+  // Remove active class from all slides
+  slides.forEach(slide => {
+    slide.classList.remove('is-active');
   });
 
-  currentIndex = nextIndex;
+  // Add active class to new slide
+  slides[index].classList.add('is-active');
+
+  // Update dots
+  updateDots(index);
+
+  currentIndex = index;
 }
 
 function nextSlide() {
-  const next = (currentIndex + 1) % slides.length;
-  updateSlides(next, "next");
+  showSlide(currentIndex + 1);
 }
 
 function prevSlide() {
-  const prev = (currentIndex - 1 + slides.length) % slides.length;
-  updateSlides(prev, "prev");
+  showSlide(currentIndex - 1);
 }
 
 nextBtn?.addEventListener("click", nextSlide);
 prevBtn?.addEventListener("click", prevSlide);
 
-setInterval(nextSlide, 8000);
+// Auto-advance
+let autoSlide = setInterval(nextSlide, 8000);
 
-/* =========================
-   CARD HOVER (CLASS ONLY)
-========================= */
+// Pause on hover (optional, good for UX)
+const wrapper = document.querySelector('.highlightWrap');
+wrapper?.addEventListener('mouseenter', () => clearInterval(autoSlide));
+wrapper?.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 8000));
 
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("mouseenter", () => {
-    card.classList.add("card-hover");
-  });
+// Run init
+initCarousel();
 
-  card.addEventListener("mouseleave", () => {
-    card.classList.remove("card-hover");
-  });
-});
-
-/* =========================
-   PILL BUTTON MICRO-MOTION
-========================= */
-
-document.querySelectorAll(".pillBtn").forEach(btn => {
-  btn.addEventListener("mouseenter", () => {
-    btn.classList.add("pill-hover");
-  });
-
-  btn.addEventListener("mouseleave", () => {
-    btn.classList.remove("pill-hover");
-  });
-});
 
 /* =========================
    DIVERSITY FADE-IN
@@ -86,5 +96,5 @@ const observer = new IntersectionObserver(
 );
 
 document
-  .querySelectorAll(".diversity__stats, .diversity__art, .diversity__badge")
+  .querySelectorAll(".diversity__stats, .diversity__art, .diversity__badge, .card")
   .forEach(el => observer.observe(el));

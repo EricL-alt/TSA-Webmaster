@@ -125,6 +125,11 @@ def search():
     return render_template("search.html", query=query, logged_in=current_user.is_authenticated)
 
 
+@app.route('/events')
+def events():
+    return render_template("events.html", logged_in=current_user.is_authenticated)
+
+
 # =============================================================================
 # SUGGESTIONS / RESOURCES ROUTES
 # =============================================================================
